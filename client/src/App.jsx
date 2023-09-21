@@ -1,4 +1,4 @@
-
+import AddSighting from './components/AddSighting'
 import './App.css'
 
 function App() {
@@ -10,6 +10,9 @@ function App() {
       <header>
         <h1>Animal Sighting Tracker</h1>
       </header>
+      <main>
+        <AddSighting />
+      </main>
     </div>
     </>
   )
