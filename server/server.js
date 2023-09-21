@@ -36,13 +36,42 @@ app.get('/api/species', async (req, res) => {
 app.get("/api/sightings", async (req, res) => {
     try {
       const allSightings = await db.query(
-        "SELECT sightings.sighting_id, sightings.date_time as last_seen, sightings.healthy, sightings.location, individuals.nick_name as name, species.common_name, species.scientific_name FROM sightings LEFT JOIN individuals ON individuals.individual_id = sightings.individual_id LEFT JOIN species ON species.species_id = individuals.species_id"
+        "SELECT sightings.sighting_id, sightings.date_time as last_seen, sightings.health, sightings.location, individuals.nick_name as name, species.common_name, species.scientific_name FROM sightings LEFT JOIN individuals ON individuals.individual_id = sightings.individual_id LEFT JOIN species ON species.species_id = individuals.species_id"
       );
       res.json(allSightings.rows);
     } catch (error) {
       console.error(error.message);
     }
   });
+
+  // ADD sighting to sightings table
+  app.post("/api/sightings/add", async (req, res) => {
+    console.log(req.body);
+    try {
+        const { date_time, individual_id, health, location,email } = req.body;
+        const newSighting = await db.query(
+            "INSERT INTO sightings (date_time, individual_id, health, location, email) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+            [date_time, individual_id, health, location, email]
+        );
+        res.json(newSighting.rows[0]);
+    } catch (error) {
+        console.error(error.message);
+    }
+});
+
+//delete a sighting
+app.delete("/api/sightings/delete/:sightingId", async (req, res) => {
+    try {
+       let {sightingId} = req.params;
+       const deleteSighting = await db.query(
+              "DELETE FROM sightings WHERE sighting_id = $1",
+                [sightingId]
+            );
+            res.json("Sighting  with id ${sightingId} was deleted!");
+    } catch (error) {
+        console.error(error.message);
+    }
+});
 
 
 
