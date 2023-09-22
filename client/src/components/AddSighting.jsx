@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SightingForm } from "./SightingForm";
+import "/Users/moralesfamily/Desktop/EndangeredAnimals/client/src/App.css"
 
 
 function AddSighting() {
