@@ -1,11 +1,262 @@
-header{
-  background-color: #282c34;
-  min-height: 10vh;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* 1rem = 10px */
+  font-size: 62.5%;
+}
+
+body {
+  /* 16px */
+  font-size: 1.6rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+main {
+  width: 95%;
+  margin: auto;
+}
+
+.btn {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+}
+
+/* HEADER */
+header {
+  height: 120px;
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 94, 0);
+  color: rgb(41, 6, 6);
+}
+
+h1 {
+  padding: 40px;
+}
+
+/* LIST EVENTS COMPONENT TABLE STYLING */
+
+thead tr {
+  height: 75px;
+}
+
+thead {
+  background-color: darkgray;
+  position: sticky;
+  top: 120px;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th {
+  border-top: none;
+}
+
+/* only border on the bottom of every row */
+tr {
+  border-bottom: 1px solid #ddd;
+  height: 55px;
+}
+
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+tr:hover {
+  background-color: #82c3ec;
+}
+
+.col {
+  width: 13%;
+}
+
+.col-details,
+.col-delete {
+  width: 8%;
+}
+
+/* BUTTON ADD */
+
+.btn-add {
+  position: flex;
+  z-index: 1;
+  top: 4px;
+  transform: translate(0%, 25%);
+  left: 105px;
+  margin-bottom:20px;
+  margin-top: 30px;
+}
+
+/* MODAL FORM COMPONENT */
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.modal-content {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 60vw;
+  min-height: 20vh;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  text-align: center;
+}
+
+.modal-header,
+.modal-footer {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.modal-header {
+  font-size: 20px;
+}
+
+.modal-body {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+/* FORM STYLING */
+
+form {
+  width: 80%;
+  margin: auto;
+}
+
+.h1 {
+  margin-top: 80px;
+  color: rgb(38, 41, 227);
+  font-size: 35px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+
+.form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+textarea,
+select,
+input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  display: block;
+  box-sizing: border-box;
+  width: 60%;
+  border-radius: 4px;
+  border: 1px solid black;
+  padding: 7px 15px;
+  margin: 15px auto;
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+label {
+  font-size: 15px;
+}
+
+.label,
+section > label {
+  line-height: 2;
+  text-align: left;
+  display: block;
+  margin-bottom: 13px;
+  margin-top: 20px;
   color: white;
-  font-size: calc(10px + 2vmin);
-  padding: 0 2vw;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.FormSubmit {
+  position: relative;
+  background: #4169e1;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 10px 0px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  display: block;
+  appearance: none;
+  border-radius: 4px;
+  width: 100%;
+  font-weight: 400;
+  letter-spacing: 0.5rem;
+  transition: 0.3s all;
+}
+
+.FormPage {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+ button[type="button"] {
+  padding: 5px;
+  background: #516391;
+  color: white;
+  letter-spacing: 0px;
+  text-transform: none;
+  padding: 10px;
+  letter-spacing: 1px;
+} 
+
+legend {
+  background-color: #87ceeb;
+  margin-bottom: 15px;
+  padding: 3px 6px;
+}
+
+textarea {
+  resize: none;
+}
+
+.observer-info {
+  margin-top: 20px;
+}
+
+.modal-footer {
+  padding: 0px;
+}
+.sightingContainer{
+  margin-top: 20px;
 }
