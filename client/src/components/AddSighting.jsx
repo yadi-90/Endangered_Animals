@@ -30,7 +30,7 @@ function AddSighting() {
   return (
     <>
     <img src="images/Mexico_Header_IMG.png" alt="Mexico Header" className="header-img" />
-      <button onClick={handleAddClick} className="btn btn-add">
+      <button onClick={handleAddClick} className="addButton">
         Add Sighting
       </button>
       {show ? (
